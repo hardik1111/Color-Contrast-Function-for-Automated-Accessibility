@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-25T16:33:45 CET" name="Default suite" finished-at="2023-12-25T16:33:46 CET" duration-ms="1098">
+    <groups>
+    </groups>
+    <test started-at="2023-12-25T16:33:45 CET" name="Default test" finished-at="2023-12-25T16:33:46 CET" duration-ms="1098">
+      <class name="hduappium.AccessibilityTest4">
+        <test-method is-config="true" signature="ConfigureAppium1()[pri:0, instance:hduappium.AccessibilityTest4@33bc72d1]" started-at="2023-12-25T16:33:45 CET" name="ConfigureAppium1" finished-at="2023-12-25T16:33:46 CET" duration-ms="1052" status="FAIL">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>
+              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a driver for automationName 'Espresso' and platformName 'ANDROID'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not find installed driver to support given caps) 
+Host info: host: 'NB-HDU', ip: '192.168.0.105'
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:/Users/hdu/eclipse/Appium/src/test/java/resources/standard-366-standard4-prod.apk, appium:autoGrantPermissions=true, appium:automationName=Espresso, appium:chromedriverExecutable=C:/Users/hdu/Downloads/chromedriver.exe, appium:chromedriverExecutableDir=C:/Users/hdu/Downloads, appium:deviceName=Pixel 6 API 33, appium:noReset=true, platformName=ANDROID}], desiredCapabilities=Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}}]
+Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a driver for automationName 'Espresso' and platformName 'ANDROID'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not find installed driver to support given caps) 
+Host info: host: 'NB-HDU', ip: '192.168.0.105'
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:/Users/hdu/eclipse/Appium/src/test/java/resources/standard-366-standard4-prod.apk, appium:autoGrantPermissions=true, appium:automationName=Espresso, appium:chromedriverExecutable=C:/Users/hdu/Downloads/chromedriver.exe, appium:chromedriverExecutableDir=C:/Users/hdu/Downloads, appium:deviceName=Pixel 6 API 33, appium:noReset=true, platformName=ANDROID}], desiredCapabilities=Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}}]
+Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}
+at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
+at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
+at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:163)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
+at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
+at hduappium.Baseclass6.ConfigureAppium1(Baseclass6.java:96)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ConfigureAppium1 -->
+        <test-method signature="accessibilityTest()[pri:0, instance:hduappium.AccessibilityTest4@33bc72d1]" started-at="2023-12-25T16:33:46 CET" name="accessibilityTest" finished-at="2023-12-25T16:33:46 CET" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>
+              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a driver for automationName 'Espresso' and platformName 'ANDROID'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not find installed driver to support given caps) 
+Host info: host: 'NB-HDU', ip: '192.168.0.105'
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:/Users/hdu/eclipse/Appium/src/test/java/resources/standard-366-standard4-prod.apk, appium:autoGrantPermissions=true, appium:automationName=Espresso, appium:chromedriverExecutable=C:/Users/hdu/Downloads/chromedriver.exe, appium:chromedriverExecutableDir=C:/Users/hdu/Downloads, appium:deviceName=Pixel 6 API 33, appium:noReset=true, platformName=ANDROID}], desiredCapabilities=Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}}]
+Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a driver for automationName 'Espresso' and platformName 'ANDROID'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not find installed driver to support given caps) 
+Host info: host: 'NB-HDU', ip: '192.168.0.105'
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:/Users/hdu/eclipse/Appium/src/test/java/resources/standard-366-standard4-prod.apk, appium:autoGrantPermissions=true, appium:automationName=Espresso, appium:chromedriverExecutable=C:/Users/hdu/Downloads/chromedriver.exe, appium:chromedriverExecutableDir=C:/Users/hdu/Downloads, appium:deviceName=Pixel 6 API 33, appium:noReset=true, platformName=ANDROID}], desiredCapabilities=Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}}]
+Capabilities {app: C:/Users/hdu/eclipse/Appium..., autoGrantPermissions: true, automationName: Espresso, chromedriverExecutable: C:/Users/hdu/Downloads/chro..., chromedriverExecutableDir: C:/Users/hdu/Downloads, deviceName: Pixel 6 API 33, noReset: true, platformName: ANDROID}
+at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
+at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
+at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:163)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
+at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
+at hduappium.Baseclass6.ConfigureAppium1(Baseclass6.java:96)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accessibilityTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:hduappium.AccessibilityTest4@33bc72d1]" started-at="2023-12-25T16:33:46 CET" name="tearDown" finished-at="2023-12-25T16:33:46 CET" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- hduappium.AccessibilityTest4 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
