@@ -52,7 +52,7 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class AccessibilityTest5 extends Baseclass5 {
 	
-	 static { System.load("C:/Users/hdu/eclipse/opencv/build/java/x64/opencv_java490.dll"); }
+	 static { System.load("C:/Users/hdu/eclipse/Appium/opencv/build/java/x64/opencv_java490.dll"); }
     @Test
 	public void accessibilityTest() throws InterruptedException, IOException
     {
