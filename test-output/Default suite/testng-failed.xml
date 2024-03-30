@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="hduappium.AccessibilityTest4">
+      <class name="hduappium.AccessibilityTest2">
         <methods>
-          <include name="tearDown"/>
-          <include name="ConfigureAppium1"/>
           <include name="accessibilityTest"/>
+          <include name="ConfigureAppium1"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- hduappium.AccessibilityTest4 -->
+      </class> <!-- hduappium.AccessibilityTest2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

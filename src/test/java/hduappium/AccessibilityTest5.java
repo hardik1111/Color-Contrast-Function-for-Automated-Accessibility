@@ -17,7 +17,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.imageio.ImageIO;
-
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.TermCriteria;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -45,9 +50,9 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 
-public class AccessibilityTest2 extends Baseclass5 {
+public class AccessibilityTest5 extends Baseclass5 {
 	
-	
+	 static { System.load("C:/Users/hdu/eclipse/opencv/build/java/x64/opencv_java490.dll"); }
     @Test
 	public void accessibilityTest() throws InterruptedException, IOException
     {
@@ -103,6 +108,19 @@ public class AccessibilityTest2 extends Baseclass5 {
     	    
     	}
     	
+    	List<Color> colors= findDominantColors("C:/Users/hdu/eclipse/Appium/src/test/java/Screenshots/element_screenshot3.png", 2);
+    	if (colors.size() >= 2) {
+    	    Color mostDominantColor = colors.get(0);
+    	    Color secondMostDominantColor = colors.get(1);
+
+    	    double contrastRatio = calculateContrastRatio(mostDominantColor, secondMostDominantColor);
+    	    System.out.println("Contrast Ratio: " + contrastRatio);
+    	}
+    	   
+
+    	   
+
+    	  
     	
 
     	// Get the location of element on the page
@@ -110,62 +128,45 @@ public class AccessibilityTest2 extends Baseclass5 {
 
     	// Get width and height of the element
 
-    	WebElement element = elements.get(3);
-    	//Crop the entire page screenshot to get only element screenshot
-    	Point point = element.getLocation();
-    	int elementWidth = element.getSize().getWidth();
-    	int elementHeight = element.getSize().getHeight();
-    	BufferedImage elementScreenshot = fullImg.getSubimage(point.getX(), point.getY(), elementWidth, elementHeight);
-    	BufferedImage croppedImage = getCroppedImage(elementScreenshot);
-    	File outputFile = new File("C:/Users/hdu/eclipse/Appium/src/test/java/Screenshots/element_screenshot.png");
-    	try {
-    	    ImageIO.write(croppedImage, "png", outputFile);
-    	    System.out.println("Saved element screenshot to " + outputFile.getAbsolutePath());
-    	} catch (IOException e) {
-    	    System.err.println("Error while saving the element screenshot: " + e.getMessage());
-    	}
-    	Map<Integer, Integer> colorMap = new HashMap<>();
-    	for (int x = 0; x < croppedImage.getWidth(); x++) {
-    	    for (int y = 0; y < croppedImage.getHeight(); y++) {
-    	        int rgb = croppedImage.getRGB(x, y);
-    	        colorMap.put(rgb, colorMap.getOrDefault(rgb, 0) + 1);
-    	    }
-    	}
-
-    	List<Entry<Integer, Integer>> sortedColors = new ArrayList<>(colorMap.entrySet());
-    	sortedColors.sort(Entry.comparingByValue(Comparator.reverseOrder()));
-
-    	int mostCommonColor = sortedColors.get(0).getKey();
-    	int secondMostCommonColor = sortedColors.get(1).getKey();
-
-    	/*int centerX = elementWidth / 2;
-    	int centerY = elementHeight / 2;
-    	int foregroundRGB = croppedImage.getRGB(centerX, centerY);*/
-    	Color foregroundColor = new Color(secondMostCommonColor);
-    	System.out.println(foregroundColor);
     	
-    	/*int edgeX = 10; // or elementWidth - 1 for the right edge
-    	int edgeY = 10; // or for the bottom edge
-    	int backgroundRGB = croppedImage.getRGB(edgeX, edgeY);*/
-    	Color backgroundColor = new Color(mostCommonColor);
-    	//int borderWidth = (int) (elementWidth * 0.36);//Math.max(1, Math.min(elementWidth, elementHeight) / 20); // 5% of the smaller dimension
-    	
-    	
-    	//Color backgroundColor = getBorderColor(elementScreenshot,borderWidth);
-    	System.out.println(backgroundColor);
-
-    	double contrastRatio = calculateContrastRatio(foregroundColor, backgroundColor);
-    	boolean contrastIsSufficient;
-    	if(contrastRatio < 4.5)
-    	{
-    		contrastIsSufficient = false;
-    	}
-    	else
-    	{
-    		contrastIsSufficient = true;
-    	}
-    	System.out.println("Contrast Ratio for Element " + element.getAttribute("text") + ": " + contrastRatio + " " + contrastIsSufficient);
     }
+
+    public List<Color> findDominantColors(String imagePath, int k) {
+    
+    	 List<Color> dominantColors = new ArrayList<>();	
+    // Read the image
+    Mat src = Imgcodecs.imread(imagePath);
+    if (src.empty()) {
+        System.out.println("Cannot read image: " + imagePath);
+        return dominantColors;
+    }
+
+    // Convert to RGB
+    Imgproc.cvtColor(src, src, Imgproc.COLOR_BGR2RGB);
+
+    // Reshape the image to a 2D matrix
+    Mat data = src.reshape(1, (int) src.total());
+
+    // Convert to floating point
+    data.convertTo(data, CvType.CV_32F);
+
+    // Implement k-means clustering
+    Mat centers = new Mat();
+    Mat labels = new Mat();
+    TermCriteria criteria = new TermCriteria(TermCriteria.MAX_ITER + TermCriteria.EPS, 100, 0.1);
+    Core.kmeans(data, k, labels, criteria, 1, Core.KMEANS_PP_CENTERS, centers);
+
+    // Convert centers to proper format and extract dominant colors
+    centers.convertTo(centers, CvType.CV_8UC1);
+    centers = centers.reshape(3);
+
+    for (int i = 0; i < centers.rows(); i++) {
+        double[] color = centers.get(i, 0);
+        Color dominantColor = new Color((int) color[0], (int) color[1], (int) color[2]);
+        dominantColors.add(dominantColor);
+    }
+    return dominantColors;
+}
     	// ...
     	/*private Color getBorderColor(BufferedImage elementScreenshot, int borderWidth) {
         long sumR = 0, sumG = 0, sumB = 0;
@@ -253,6 +254,8 @@ public class AccessibilityTest2 extends Baseclass5 {
     
         
 }
+
+
     																									
 
 

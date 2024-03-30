@@ -76,24 +76,24 @@ public class Baseclass5 {
                 .withAppiumJS(new File("C:\\Users\\hdu\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js")) // Path to Appium's main.js file on Windows
                 .withLogFile(new File("appium.log")) // Optional: Set log file path
                 .withArgument(GeneralServerFlag.LOCAL_TIMEZONE) 
-                .withArgument(GeneralServerFlag.LOG_LEVEL, "info"); // Optional: Set log level
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "debug")
+                .withArgument(() -> "--allow-insecure", "adb_shell");// Optional: Set log level
 
         
         appiumService = AppiumDriverLocalService.buildService(builder);
         appiumService.start();
 			
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 6 API 33");
-        capabilities.setCapability(MobileCapabilityType.APP, "C:/Users/hdu/eclipse/Appium/src/test/java/resources/standard-366-standard4-prod.apk");
-        capabilities.setCapability("automationName", "UiAutomator2");
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("deviceName", "Pixel 6 API 33"); // Replace with your device name or emulator
+        caps.setCapability("automationName", "UiAutomator2");
+        caps.setCapability("app", "C:/Users/hdu/eclipse/Espresso_Integration/src/test/java/resources/standard-366-standard4-prod.apk");
+        caps.setCapability("appPackage", "de.hafas.android.standard4");
+        caps.setCapability("appActivity", "de.hafas.main.HafasApp");
+        caps.setCapability("enforceXPath1", true);
         
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        capabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE_DIR, "C:/Users/hdu/Downloads");
-        capabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, "C:/Users/hdu/Downloads/chromedriver.exe");
-        capabilities.setCapability("autoGrantPermissions", "true");
         
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
 	}
